@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { container } from "tsyringe";
-import ListUserUseCase from "./listUserUseCase";
+import ListUserUseCase from "../useCase/listUserUseCase";
 
 
 class ListUserController {
