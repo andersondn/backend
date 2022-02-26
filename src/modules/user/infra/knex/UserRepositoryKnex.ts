@@ -30,6 +30,10 @@ class UserRepositoryKnex implements UserRepository {
 
         return users;
     }
+    async getUserById(userId: number): Promise<User> {
+        const user = await knexConnection('users').where({ id: userId }).first();
+        return user;
+    }
 
 }
 export default UserRepositoryKnex;
