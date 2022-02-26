@@ -7,6 +7,12 @@ export async function up(knex: Knex): Promise<void> {
         table.string('name', 50).notNullable();
         table.string('email', 150).notNullable();
         table.string('password', 255).notNullable();
+        table.enum('role', ['ADMIN', 'MANAGER','EMPLOYEE']).notNullable();
+        table.integer('department_id')
+            .unsigned()
+            .index()
+            .references('id')
+            .inTable('departments');
         table.timestamps();
       })
       
