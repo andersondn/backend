@@ -1,4 +1,4 @@
-
+import 'dotenv/config'
    
 import app from './app';
 import { APP_PORT } from './shared/config/constants';
