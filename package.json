@@ -5,13 +5,13 @@
   "license": "MIT",
   "scripts": {
     "dev": "ts-node-dev --inspect --respawn --transpile-only --ignore-watch node_modules src/server.ts"
-
   },
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.17.3",
     "knex": "^1.0.3",
-    "sqlite3": "^5.0.2"
+    "sqlite3": "^5.0.2",
+    "tsyringe": "^4.6.0"
   },
   "devDependencies": {
     "@types/cors": "^2.8.12",
