@@ -8,7 +8,7 @@ type CreateUserParams = {
   name: string;
   email: string;
   password: string;
-  departmentId: number;
+  department_id: number;
   role: "ADMIN" | "MANAGER" | "EMPLOYEE";
 };
 
@@ -22,7 +22,7 @@ class CreateUserUseCase {
     name,
     email,
     password,
-    departmentId,
+    department_id,
     role,
   }: CreateUserParams): Promise<User> {
 
@@ -39,7 +39,7 @@ class CreateUserUseCase {
       email,
       password: hashedPassword,
       role,
-      department_id: departmentId,
+      department_id,
     });
     
     delete user.password;
