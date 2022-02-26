@@ -4,7 +4,7 @@ import { Knex } from "knex";
 export async function up(knex: Knex): Promise<void> {
     return knex.schema.createTable('costs', function (table) {
         table.increments();
-        table.string('title', 50).notNullable();
+        table.string('title', 80).notNullable();
         table.integer('amount').notNullable();
         table.integer('department_id')
             .unsigned()
