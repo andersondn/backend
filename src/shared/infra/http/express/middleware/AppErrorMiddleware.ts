@@ -1,4 +1,5 @@
 import { NextFunction, Request, Response } from 'express';
+import AppError from '../../../../helpers/AppError';
 
 type ConfigAppError = {
     defaultMessage?: 'Internal Error' | string;

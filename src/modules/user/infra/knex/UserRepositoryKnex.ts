@@ -13,7 +13,10 @@ class UserRepositoryKnex implements UserRepository {
     
         }
     }
-
+    async getUserByEmail(email: string): Promise<User> {
+        const user = await knexConnection('users').where({ email }).first();
+        return user;
+    }
 
 }
 export default UserRepositoryKnex;
