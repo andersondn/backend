@@ -1,7 +1,7 @@
 import { inject, injectable } from "tsyringe";
-import AppError from "../../../../shared/helpers/AppError";
-import User from "../../entities/User";
-import UserRepository from "../../repositories/UserRepository";
+import AppError from "../../../shared/helpers/AppError";
+import User from "../entities/User";
+import UserRepository from "../repositories/UserRepository";
 import bcrypt from 'bcryptjs';
 
 type CreateUserParams = {

@@ -1,7 +1,7 @@
 import { Router } from "express";
-import CreateUserController from "../modules/user/useCase/createUser/createUserController";
-import GetUserController from "../modules/user/useCase/getUser/getUserController";
-import ListUserController from "../modules/user/useCase/listUser/listUserController";
+import CreateUserController from "../modules/user/controllers/createUserController";
+import GetUserController from "../modules/user/controllers/getUserController";
+import ListUserController from "../modules/user/controllers/listUserController";
 
 const routes = Router();
 const listUserController = new ListUserController();
@@ -18,7 +18,7 @@ routes.get(
     getUserController.validate,
     getUserController.handler
  )
- 
+
 routes.post(
     '/',
     createUserController.validate,

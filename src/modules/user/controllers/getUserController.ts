@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { container } from "tsyringe";
-import { Joi, Segments, validation } from "../../../../shared/infra/http/express/middleware/Celebrate";
-import GetUserUseCase from "./getUserUseCase";
+import { Joi, Segments, validation } from "../../../shared/infra/http/express/middleware/Celebrate";
+import GetUserUseCase from "../useCase/getUserUseCase";
 
 class GetUserController {
     validate = validation({

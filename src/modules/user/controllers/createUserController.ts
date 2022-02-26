@@ -1,11 +1,11 @@
 import { Request, Response } from "express";
 import { container } from "tsyringe";
-import CreateUserUseCase from "./createUserUseCase";
+import CreateUserUseCase from "../useCase/createUserUseCase";
 import {
   Joi,
   Segments,
   validation,
-} from "../../../../shared/infra/http/express/middleware/Celebrate";
+} from "../../../shared/infra/http/express/middleware/Celebrate";
 class CreateUserController {
   validate = validation({
     [Segments.BODY]: Joi.object().keys({
