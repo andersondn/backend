@@ -9,9 +9,9 @@ import {
 class CreateUserController {
   validate = validation({
     [Segments.BODY]: Joi.object().keys({
-      name: Joi.string().required(),
-      password: Joi.string().required(),
-      email: Joi.string().required(),
+      name: Joi.string().required().max(150),
+      password: Joi.string().required().min(6),
+      email: Joi.string().required().max(150).lowercase(),
       departmentId: Joi.number(),
       role: Joi.string().default("EMPLOYEE"),
     }),
@@ -27,7 +27,8 @@ class CreateUserController {
       departmentId,
       role,
     });
-    return response.json(result);
+
+    return response.status(201).json(result);
   }
 }
 
