@@ -6,6 +6,7 @@ const createUserController = new CreateUserController();
 
 routes.post(
     '/',
+    createUserController.validate,
     createUserController.handler
      );
 
