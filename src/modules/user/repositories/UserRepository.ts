@@ -5,5 +5,6 @@ interface UserRepository {
     getUserByEmail(email: string): Promise<User>;
     getUserById(userId: number): Promise<User>;
     listUsers(): Promise<User[]>;
+    updateUser(userId: number, user: Omit<User, 'id' | 'created_at' | 'updated_at' | 'password'>): Promise<number>;
 }
 export default UserRepository;
