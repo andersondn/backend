@@ -17,6 +17,19 @@ class UserRepositoryKnex implements UserRepository {
         const user = await knexConnection('users').where({ email }).first();
         return user;
     }
+    async listUsers(): Promise<User[]> {
+        const users = await knexConnection('users').select({
+            id: 'users.id',
+            name: 'users.name',
+            email: 'users.email',
+            role: 'users.role',
+            department_id: 'users.department_id',
+            created_at: 'users.created_at',
+            updated_at: 'users.updated_at',
+        });
+
+        return users;
+    }
 
 }
 export default UserRepositoryKnex;
