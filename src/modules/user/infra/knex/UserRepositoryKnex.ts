@@ -2,8 +2,17 @@ import User from "../../entities/User";
 import UserRepository from "../../repositories/UserRepository";
 
 class UserRepositoryKnex implements UserRepository {
-    insertUser(user: User): Promise<User> {
-        throw new Error("Method not implemented.");
+    async insertUser(user: Omit<User, "id" | "created_at" | "updated_at">): Promise<User> {
+        
+        return {
+            id: 1,
+          ...user, 
+            created_at: new Date(),
+            updated_at: new Date()
+    
+        }
     }
 
+
 }
+export default UserRepositoryKnex;
