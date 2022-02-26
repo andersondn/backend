@@ -5,7 +5,7 @@ class User  {
 
     email: string;
 
-    password: string;
+    password?: string;
 
     role: 'ADMIN'| 'MANAGER'|'EMPLOYEE';
 

@@ -12,19 +12,19 @@ class CreateUserController {
       name: Joi.string().required().max(150),
       password: Joi.string().required().min(6),
       email: Joi.string().required().max(150).lowercase(),
-      departmentId: Joi.number(),
+      department_id: Joi.number(),
       role: Joi.string().default("EMPLOYEE"),
     }),
   });
 
   async handler(request: Request, response: Response) {
-    const { name, email, password, departmentId, role } = request.body;
+    const { name, email, password, department_id, role } = request.body;
     const createUserUseCase = container.resolve(CreateUserUseCase);
     const result = await createUserUseCase.execute({
       name,
       email,
       password,
-      departmentId,
+      department_id,
       role,
     });
 
