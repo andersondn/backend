@@ -8,16 +8,19 @@ const config: { [key: string]: Knex.Config } = {
     connection: {
       filename: "./src/database/db.sqlite3"
     },
+    useNullAsDefault: true,
     migrations: {
       directory: "./src/database/migrations"
     }
   },
 
-  staging: {
+  test: {
     client: "sqlite3",
     connection: {
       filename: "./src/database/db.sqlite3"
     },
+    useNullAsDefault: true,
+
     migrations: {
       directory: "./src/database/migrations"
     }
@@ -28,6 +31,7 @@ const config: { [key: string]: Knex.Config } = {
     connection: {
       filename: "./src/database/db.sqlite3"
     },
+    useNullAsDefault: true,
     migrations: {
       directory: "./src/database/migrations"
     }
