@@ -5,7 +5,7 @@ import {
   Joi,
   Segments,
   validation,
-} from "../../../shared/infra/http/express/middleware/Celebrate";
+} from "../../../../shared/infra/http/express/middleware/Celebrate";
 class CreateUserController {
   validate = validation({
     [Segments.BODY]: Joi.object().keys({
