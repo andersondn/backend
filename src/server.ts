@@ -1,9 +1,10 @@
 
    
 import app from './app';
+import { APP_PORT } from './shared/config/constants';
 
-const PORT = process.env.PORT  || 4000
 
-app.listen(PORT, function () {
-    console.log('Server running on port ' + PORT)
+
+app.listen(APP_PORT, function () {
+    console.log('Server running on port ' + APP_PORT)
 })
