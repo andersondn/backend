@@ -3,6 +3,7 @@ interface DepartmentRepository {
     listDepartments(): Promise<Department[]>;
     getDepartmentById(id: number): Promise<Department>;
     updateDepartment(departmentId: number, department: Pick<Department, 'title' >): Promise<boolean>;
+    deleteDepartment(departmentId: number): Promise<boolean>;
 }
 
 export default DepartmentRepository;
