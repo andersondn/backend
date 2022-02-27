@@ -16,5 +16,15 @@ class DepartmentRepositoryKnex implements DepartmentRepository {
             updated_at: new Date()
         };
     }
+    async listDepartments(): Promise<Department[]> {
+        const departments = await knexConnection('departments').select({
+            id: 'departments.id',
+            title: 'departments.title',
+            created_at: 'departments.created_at',
+            updated_at: 'departments.updated_at'
+        });
+
+        return departments;
+    }
 }
 export default DepartmentRepositoryKnex;
