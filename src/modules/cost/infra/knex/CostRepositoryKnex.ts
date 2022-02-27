@@ -1,6 +1,6 @@
-import { knexConnection } from "../../../../shared/config/knexDB";
-import Cost from "../../entities/Cost";
-import CostRepository from "../../repositories/CostRepository";
+import { knexConnection } from '../../../../shared/config/knexDB';
+import Cost from '../../entities/Cost';
+import CostRepository from '../../repositories/CostRepository';
 
 class CostRepositoryKnex implements CostRepository {
     async createCost(
@@ -11,12 +11,7 @@ class CostRepositoryKnex implements CostRepository {
             created_at: new Date(),
             updated_at: new Date()
         });
-        return {
-            id,
-            ...cost,
-            created_at: new Date(),
-            updated_at: new Date()
-        };
+        return this.getCostById(id);
     }
     async listCosts(): Promise<Cost[]> {
         const costs = await knexConnection('costs').select({
@@ -33,14 +28,15 @@ class CostRepositoryKnex implements CostRepository {
         return costs;
     }
     async getCostById(id: number): Promise<Cost> {
-        const cost = await knexConnection('costs')
-            .where({ id })
-            .first();
+        const cost = await knexConnection('costs').where({ id }).first();
         return cost;
     }
     async updateCost(
         costId: number,
-        cost: Pick<Cost, 'title' | 'amount' | 'date' | 'department_id' | 'user_id'>
+        cost: Pick<
+            Cost,
+            'title' | 'amount' | 'date' | 'department_id' | 'user_id'
+        >
     ): Promise<boolean> {
         const updated = await knexConnection('costs')
             .where({ id: costId })
@@ -56,6 +52,6 @@ class CostRepositoryKnex implements CostRepository {
             .del();
         return deleted > 0;
     }
-    
-
 }
+
+export default CostRepositoryKnex;
