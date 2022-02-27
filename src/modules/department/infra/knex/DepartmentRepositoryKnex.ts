@@ -26,5 +26,11 @@ class DepartmentRepositoryKnex implements DepartmentRepository {
 
         return departments;
     }
+    async getDepartmentById(id: number): Promise<Department> {
+        const department = await knexConnection('departments')
+            .where({ id })
+            .first();
+        return department;
+    }
 }
 export default DepartmentRepositoryKnex;
