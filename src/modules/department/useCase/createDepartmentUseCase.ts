@@ -1,4 +1,5 @@
 import { inject, injectable } from 'tsyringe';
+import Department from '../entities/Department';
 import DepartmentRepository from '../repositories/DepartmentRepository';
 
 type CreateDepartmentParams = {
