@@ -1,4 +1,5 @@
 import { knexConnection } from '../../../../shared/config/knexDB';
+import DepartmentRepository from '../../repositories/DepartmenRepository';
 
 class DepartmentRepositoryKnex implements DepartmentRepository {
     async createDepartment(
@@ -32,5 +33,18 @@ class DepartmentRepositoryKnex implements DepartmentRepository {
             .first();
         return department;
     }
+    async updateDepartment(
+        departmentId: number,
+        department: Pick<Department, 'title'>
+    ): Promise<boolean> {
+        const updated = await knexConnection('departments')
+            .where({ id: departmentId })
+            .update({
+                ...department,
+                updated_at: new Date()
+            });
+        return updated > 0;
+    }
 }
+
 export default DepartmentRepositoryKnex;
