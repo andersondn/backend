@@ -7,7 +7,7 @@ import {
 } from '../../../shared/infra/http/express/middleware/Celebrate';
 import UpdateDepartmentUseCase from '../useCase/updateDepartmentUseCase';
 
-class updateDepartmentController {
+class UpdateDepartmentController {
     validate = validation({
         [Segments.PARAMS]: Joi.object().keys({
             departmentId: Joi.number().required()
@@ -37,4 +37,4 @@ class updateDepartmentController {
     }
 }
 
-export default updateDepartmentController;
+export default UpdateDepartmentController;
