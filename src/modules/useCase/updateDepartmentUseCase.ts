@@ -1,5 +1,5 @@
 import { inject, injectable } from 'tsyringe';
-import DepartmentRepository from '../department/repositories/DepartmenRepository';
+import DepartmentRepository from '../department/repositories/DepartmentRepository';
 import AppError from '../../shared/helpers/AppError';
 
 type UpdateDepartmentParams = {
