@@ -4,3 +4,5 @@ class Department {
     created_at: Date;
     updated_at: Date;
 }
+
+export default Department;

@@ -1,4 +1,5 @@
 import { knexConnection } from '../../../../shared/config/knexDB';
+import Department from '../../entities/Department';
 import DepartmentRepository from '../../repositories/DepartmentRepository';
 
 class DepartmentRepositoryKnex implements DepartmentRepository {
