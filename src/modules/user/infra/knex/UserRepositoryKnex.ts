@@ -11,12 +11,7 @@ class UserRepositoryKnex implements UserRepository {
             created_at: new Date(),
             updated_at: new Date()
         });
-        return {
-            id,
-            ...user,
-            created_at: new Date(),
-            updated_at: new Date()
-        };
+        return this.getUserById(id);
     }
     async getUserById(userId: number): Promise<User> {
         const user = await knexConnection('users')
