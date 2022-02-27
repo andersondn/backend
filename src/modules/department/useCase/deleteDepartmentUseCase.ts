@@ -1,22 +1,14 @@
 import { inject, injectable } from 'tsyringe';
-import DepartmentRepository from '../department/repositories/DepartmentRepository';
-import AppError from '../../shared/helpers/AppError';
-
-type UpdateDepartmentParams = {
-    title: string;
-    departmentId: number;
-};
+import DepartmentRepository from '../repositories/DepartmentRepository';
+import AppError from '../../../shared/helpers/AppError';
 
 @injectable()
-class UpdateDepartmentUseCase {
+class DeleteDepartmentUseCase {
     constructor(
         @inject('DepartmentRepository')
         private departmentRepository: DepartmentRepository
     ) {}
-    async execute({
-        title,
-        departmentId
-    }: UpdateDepartmentParams): Promise<boolean> {
+    async execute(departmentId: number): Promise<boolean> {
         const checkDepartment =
             await this.departmentRepository.getDepartmentById(departmentId);
         if (!checkDepartment) {
@@ -26,12 +18,11 @@ class UpdateDepartmentUseCase {
             });
         }
 
-        const department = await this.departmentRepository.updateDepartment(
-            departmentId,
-            { title }
+        const department = await this.departmentRepository.deleteDepartment(
+            departmentId
         );
 
         return department;
     }
 }
-export default UpdateDepartmentUseCase;
+export default DeleteDepartmentUseCase;

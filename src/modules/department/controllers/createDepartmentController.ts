@@ -5,7 +5,7 @@ import {
     Segments,
     validation
 } from '../../../shared/infra/http/express/middleware/Celebrate';
-import CreateDepartmentUseCase from '../../useCase/createDepartmentUseCase';
+import CreateDepartmentUseCase from '../useCase/createDepartmentUseCase';
 
 class createDepartmentController {
     validate = validation({

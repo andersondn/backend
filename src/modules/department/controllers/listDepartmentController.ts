@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import { container } from 'tsyringe';
-import ListDepartmentsUseCase from '../../useCase/listDepartmentsUseCase';
+import ListDepartmentsUseCase from '../useCase/listDepartmentsUseCase';
 
 class ListDepartmentController {
     async handler(request: Request, response: Response) {

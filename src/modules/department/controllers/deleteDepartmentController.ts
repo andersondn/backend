@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import { container } from 'tsyringe';
 import { Joi, Segments, validation } from '../../../shared/infra/http/express/middleware/Celebrate';
-import DeleteDepartmentUseCase from '../../useCase/deleteDepartmentUseCase';
+import DeleteDepartmentUseCase from '../useCase/deleteDepartmentUseCase';
 
 class DeleteDepartmentController {
     validate = validation({
