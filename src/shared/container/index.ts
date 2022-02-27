@@ -1,5 +1,6 @@
 import { container } from 'tsyringe';
 import DepartmentRepositoryKnex from '../../modules/department/infra/knex/DepartmentRepositoryKnex';
+import DepartmentRepository from '../../modules/department/repositories/DepartmentRepository';
 import UserRepositoryKnex from '../../modules/user/infra/knex/UserRepositoryKnex';
 import UserRepository from '../../modules/user/repositories/UserRepository';
 

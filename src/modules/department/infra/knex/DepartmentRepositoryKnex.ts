@@ -1,5 +1,5 @@
 import { knexConnection } from '../../../../shared/config/knexDB';
-import DepartmentRepository from '../../repositories/DepartmenRepository';
+import DepartmentRepository from '../../repositories/DepartmentRepository';
 
 class DepartmentRepositoryKnex implements DepartmentRepository {
     async createDepartment(
@@ -44,6 +44,12 @@ class DepartmentRepositoryKnex implements DepartmentRepository {
                 updated_at: new Date()
             });
         return updated > 0;
+    }
+    async deleteDepartment(departmentId: number): Promise<boolean> {
+        const deleted = await knexConnection('departments')
+            .where({ id: departmentId })
+            .del();
+        return deleted > 0;
     }
 }
 

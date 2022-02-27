@@ -1,5 +1,5 @@
 import { inject, injectable } from 'tsyringe';
-import DepartmentRepository from '../department/repositories/DepartmenRepository';
+import DepartmentRepository from '../department/repositories/DepartmentRepository';
 
 @injectable()
 class ListDepartmentsUseCase {
