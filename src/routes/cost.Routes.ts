@@ -1,5 +1,6 @@
 import { Router } from "express";
 import CreateCostController from "../modules/cost/controllers/createCostController";
+import DeleteCostController from "../modules/cost/controllers/deleteCostController";
 import GetCostController from "../modules/cost/controllers/getCostController";
 import ListCostController from "../modules/cost/controllers/listCostsController";
 import UpdateCostController from '../modules/cost/controllers/updateCostController';
@@ -9,6 +10,8 @@ const listCostController = new ListCostController();
 const getCostController = new GetCostController();
 const createCostController = new CreateCostController();
 const updateCostController = new UpdateCostController();
+const deleteCostController = new DeleteCostController();
+
 routes.get(
     '/',
     listCostController.handler
@@ -32,6 +35,12 @@ routes.patch(
     updateCostController.handler
 );
 
+
+routes.delete(
+    '/:costId',
+    deleteCostController.validate,
+    deleteCostController.handler
+);
 
     
 
