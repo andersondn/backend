@@ -1,10 +1,10 @@
-import { Request, Response } from 'express';
 import { container } from 'tsyringe';
 import {
     Joi,
     Segments,
     validation
 } from '../../../shared/infra/http/express/middleware/Celebrate';
+import { AuthRequest, Response } from '../../../shared/infra/http/express/types/express';
 import CreateCostUseCase from '../useCase/createCostUseCase';
 
 class CreateCostController {
@@ -13,13 +13,13 @@ class CreateCostController {
             title: Joi.string().required(),
             amount: Joi.number().required(),
             date: Joi.date().required(),
-            user_id: Joi.number().required(),
             department_id: Joi.number().required()
         })
     });
 
-    async handler(request: Request, response: Response) {
-        const { title, amount, date, user_id, department_id } = request.body;
+    async handler(request: AuthRequest, response: Response) {
+        const { title, amount, date,  department_id } = request.body;
+        const user_id = request.user.id;
         const createCostUseCase = container.resolve(CreateCostUseCase);
         const result = await createCostUseCase.execute({
             title,
