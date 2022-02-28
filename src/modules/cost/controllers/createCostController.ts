@@ -29,7 +29,7 @@ class CreateCostController {
             department_id
         });
 
-        return response.status(200).json(result);
+        return response.status(201).json(result);
     }
 }
 
