@@ -13,7 +13,7 @@ function authMiddleware(
         if (type === 'Bearer') {
             try {
                 const decoded = jwt.verify(token, JWT_SECRET);
-                request.user = decoded;
+                request.user = decoded as {id: number, email: string, name: string, role: string};
                 return next();
             } catch (error) {
                 return response.status(401).json({
