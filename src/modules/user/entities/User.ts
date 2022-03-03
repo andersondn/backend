@@ -11,6 +11,8 @@ class User  {
 
     department_id: number;
 
+    department_title: string;
+
     created_at: Date;
 
     updated_at: Date;

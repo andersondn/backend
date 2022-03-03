@@ -15,6 +15,22 @@ class UserRepositoryKnex implements UserRepository {
     }
     async getUserById(userId: number): Promise<User> {
         const user = await knexConnection('users')
+            .select({
+                id: 'users.id',
+                name: 'users.name',
+                email: 'users.email',
+                role: 'users.role',
+                department_id: 'users.department_id',
+                department_title: 'departments.title',
+                created_at: 'users.created_at',
+                updated_at: 'users.updated_at'
+            })
+            .leftJoin(
+                'departments',
+                'users.department_id',
+                '=',
+                'departments.id'
+            )
             .where({ id: userId })
             .first();
         return user;
@@ -26,15 +42,23 @@ class UserRepositoryKnex implements UserRepository {
     }
 
     async listUsers(): Promise<User[]> {
-        const users = await knexConnection('users').select({
-            id: 'users.id',
-            name: 'users.name',
-            email: 'users.email',
-            role: 'users.role',
-            department_id: 'users.department_id',
-            created_at: 'users.created_at',
-            updated_at: 'users.updated_at'
-        });
+        const users = await knexConnection('users')
+            .select({
+                id: 'users.id',
+                name: 'users.name',
+                email: 'users.email',
+                role: 'users.role',
+                department_id: 'users.department_id',
+                department_title: 'departments.title',
+                created_at: 'users.created_at',
+                updated_at: 'users.updated_at'
+            })
+            .leftJoin(
+                'departments',
+                'users.department_id',
+                '=',
+                'departments.id'
+            );
 
         return users;
     }
