@@ -38,7 +38,7 @@ class LoginUseCase {
         }
         throw new AppError({
             message: 'Usuário e senha incorretos',
-            statusCode: 401
+            statusCode: 200
         });
     }
 }
