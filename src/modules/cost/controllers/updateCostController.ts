@@ -18,7 +18,6 @@ class UpdateCostController {
             title: Joi.string().required(),
             amount: Joi.number().required(),
             date: Joi.date().required(),
-            user_id: Joi.number().required(),
             department_id: Joi.number().required()
         })
     });
