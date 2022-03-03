@@ -58,7 +58,7 @@ class CostRepositoryKnex implements CostRepository {
             'departments.id'
         )
         .leftJoin('users', 'costs.user_id', '=', 'users.id')
-        .where({ id }).first();
+        .where({ 'costs.id': id }).first();
         return cost;
     }
     async updateCost(
