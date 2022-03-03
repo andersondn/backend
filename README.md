@@ -7,6 +7,14 @@
 yarn install
 yarn start
 ```
+ou 
+
+```sh
+yarn install
+yarn build
+yarn server
+```
+
 *A porta padrão está definida para ```4000``` mas pode ser alterada no arquivo ```.env```
 
 ## Banco de dados
