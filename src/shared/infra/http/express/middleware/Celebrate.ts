@@ -18,9 +18,9 @@ function validation(
     {
       abortEarly: false,
       messages: {
-        "any.required": 'O campo "{{#label}} " é obrigatório',
-        "string.min": 'O campo "{{#label}} " deve ter no mínimo {{#limit}} caracteres',
-        "string.max": 'O campo "{{#label}} " deve ter no máximo {{#limit}} caracteres',
+        "any.required": 'O campo {{#label}} é obrigatório',
+        "string.min": 'O campo {{#label}} deve ter no mínimo {{#limit}} caracteres',
+        "string.max": 'O campo {{#label}} deve ter no máximo {{#limit}} caracteres',
       },
 
       ...validationOptions,
