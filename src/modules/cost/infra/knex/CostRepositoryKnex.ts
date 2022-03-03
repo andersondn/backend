@@ -14,21 +14,51 @@ class CostRepositoryKnex implements CostRepository {
         return this.getCostById(id);
     }
     async listCosts(): Promise<Cost[]> {
-        const costs = await knexConnection('costs').select({
+        const costs = await knexConnection('costs')
+            .select({
+                id: 'costs.id',
+                title: 'costs.title',
+                amount: 'costs.amount',
+                date: 'costs.date',
+                department_id: 'costs.department_id',
+                department_title: 'departments.title',
+                user_id: 'costs.user_id',
+                user_name: 'users.name',
+                created_at: 'costs.created_at',
+                updated_at: 'costs.updated_at'
+            })
+            .leftJoin(
+                'departments',
+                'costs.department_id',
+                '=',
+                'departments.id'
+            )
+            .leftJoin('users', 'costs.user_id', '=', 'users.id');
+
+        return costs;
+    }
+    async getCostById(id: number): Promise<Cost> {
+        const cost = await knexConnection('costs')
+        .select({
             id: 'costs.id',
             title: 'costs.title',
             amount: 'costs.amount',
             date: 'costs.date',
             department_id: 'costs.department_id',
+            department_title: 'departments.title',
             user_id: 'costs.user_id',
+            user_name: 'users.name',
             created_at: 'costs.created_at',
             updated_at: 'costs.updated_at'
-        });
-
-        return costs;
-    }
-    async getCostById(id: number): Promise<Cost> {
-        const cost = await knexConnection('costs').where({ id }).first();
+        })
+        .leftJoin(
+            'departments',
+            'costs.department_id',
+            '=',
+            'departments.id'
+        )
+        .leftJoin('users', 'costs.user_id', '=', 'users.id')
+        .where({ id }).first();
         return cost;
     }
     async updateCost(

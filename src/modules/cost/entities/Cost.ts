@@ -4,7 +4,9 @@ class Cost {
     amount: number;
     date: Date;
     department_id: number;
+    department_title: string;
     user_id: number;
+    user_name: string;
     created_at: Date;
     updated_at: Date;
 }

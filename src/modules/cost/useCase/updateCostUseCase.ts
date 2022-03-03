@@ -10,9 +10,9 @@ class UpdateCostUseCase {
         private costRepository: CostRepository
     ) {}
  
-    async execute({ costId, title, amount, date, user_id, department_id } ): Promise<boolean> {
+    async execute({ costId, title, amount, date,  department_id } ): Promise<boolean> {
 
-        const getCost = await this.costRepository.getCostById(user_id);
+        const getCost = await this.costRepository.getCostById(costId);
 
         if(!getCost) {
             throw new AppError({ message: 'Cost not found', statusCode: 404 });
@@ -22,7 +22,6 @@ class UpdateCostUseCase {
             title,
             amount,
             date,
-            user_id,
             department_id
         });
 

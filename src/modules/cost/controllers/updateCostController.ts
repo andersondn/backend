@@ -22,7 +22,7 @@ class UpdateCostController {
         })
     });
     async handler(request: Request, response: Response) {
-        const { title, amount, date, user_id, department_id } = request.body;
+        const { title, amount, date, department_id } = request.body;
         const costId = request.params.costId as unknown as number;
         const createCostUseCase = container.resolve(UpdateCostUseCase);
         const result = await createCostUseCase.execute({
@@ -30,7 +30,6 @@ class UpdateCostController {
             title,
             amount,
             date,
-            user_id,
             department_id
         });
 
