@@ -31,7 +31,7 @@ class UserRepositoryKnex implements UserRepository {
                 '=',
                 'departments.id'
             )
-            .where({ id: userId })
+            .where({ 'users.id': userId })
             .first();
         return user;
     }
